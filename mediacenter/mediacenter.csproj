@@ -36,6 +36,27 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="dotNetRDF">
+      <HintPath>..\..\..\..\Downloads\dotnetrdf_library_090_rc4\Core\net40\dotNetRDF.dll</HintPath>
+    </Reference>
+    <Reference Include="dotNetRDF.Data.Virtuoso">
+      <HintPath>..\..\..\..\Downloads\dotnetrdf_library_090_rc4\Data\Virtuoso\net40\dotNetRDF.Data.Virtuoso.dll</HintPath>
+    </Reference>
+    <Reference Include="dotNetRDF.Query.FullText">
+      <HintPath>..\..\..\..\Downloads\dotnetrdf_library_090_rc4\Query\FullText\net40\dotNetRDF.Query.FullText.dll</HintPath>
+    </Reference>
+    <Reference Include="HtmlAgilityPack">
+      <HintPath>..\..\..\..\Downloads\dotnetrdf_library_090_rc4\Core\net40\HtmlAgilityPack.dll</HintPath>
+    </Reference>
+    <Reference Include="Lucene.Net">
+      <HintPath>..\..\..\..\Downloads\dotnetrdf_library_090_rc4\Query\FullText\net40\Lucene.Net.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>..\..\..\..\Downloads\dotnetrdf_library_090_rc4\Core\net40\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="OpenLink.Data.Virtuoso">
+      <HintPath>..\..\..\..\Downloads\dotnetrdf_library_090_rc4\Data\Virtuoso\net40\OpenLink.Data.Virtuoso.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Xml" />
@@ -45,6 +66,9 @@
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="System.Xaml">
       <RequiredTargetFramework>4.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="VDS.Common">
+      <HintPath>..\..\..\..\Downloads\dotnetrdf_library_090_rc4\Core\net40\VDS.Common.dll</HintPath>
     </Reference>
     <Reference Include="WindowsBase" />
     <Reference Include="PresentationCore" />
