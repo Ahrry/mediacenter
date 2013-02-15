@@ -21,6 +21,7 @@ namespace mediacenter
     {
         public MainWindow()
         {
+
             InitializeComponent();
         }
     }
