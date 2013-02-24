@@ -1,0 +1,149 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="MediaCenterDBModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
+  <EntityContainer Name="MediaCenterDBModelStoreContainer">
+    <EntitySet Name="Acteur" EntityType="MediaCenterDBModel.Store.Acteur" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Personne" EntityType="MediaCenterDBModel.Store.Personne" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Production" EntityType="MediaCenterDBModel.Store.Production" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Type" EntityType="MediaCenterDBModel.Store.Type" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Video" EntityType="MediaCenterDBModel.Store.Video" store:Type="Tables" Schema="dbo" />
+    <AssociationSet Name="FK_Acteur_Personne" Association="MediaCenterDBModel.Store.FK_Acteur_Personne">
+      <End Role="Personne" EntitySet="Personne" />
+      <End Role="Acteur" EntitySet="Acteur" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Acteur_Video" Association="MediaCenterDBModel.Store.FK_Acteur_Video">
+      <End Role="Video" EntitySet="Video" />
+      <End Role="Acteur" EntitySet="Acteur" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Type_Type" Association="MediaCenterDBModel.Store.FK_Type_Type">
+      <End Role="Type" EntitySet="Type" />
+      <End Role="Type1" EntitySet="Type" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Video_Production" Association="MediaCenterDBModel.Store.FK_Video_Production">
+      <End Role="Production" EntitySet="Production" />
+      <End Role="Video" EntitySet="Video" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Video_Realisateur" Association="MediaCenterDBModel.Store.FK_Video_Realisateur">
+      <End Role="Personne" EntitySet="Personne" />
+      <End Role="Video" EntitySet="Video" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Video_Type" Association="MediaCenterDBModel.Store.FK_Video_Type">
+      <End Role="Type" EntitySet="Type" />
+      <End Role="Video" EntitySet="Video" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="Acteur">
+    <Key>
+      <PropertyRef Name="IdPersonne" />
+      <PropertyRef Name="IdVideo" />
+    </Key>
+    <Property Name="IdPersonne" Type="int" Nullable="false" />
+    <Property Name="IdVideo" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Personne">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="Libelle" Type="nvarchar" Nullable="false" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="Production">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" Nullable="false" />
+    <Property Name="Libelle" Type="nvarchar" Nullable="false" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="Type">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="Libelle" Type="nvarchar" Nullable="false" MaxLength="50" />
+    <Property Name="TypeParentId" Type="int" />
+  </EntityType>
+  <EntityType Name="Video">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="Libelle" Type="nvarchar" Nullable="false" MaxLength="50" />
+    <Property Name="IdRealisateur" Type="int" />
+    <Property Name="IdType" Type="int" />
+    <Property Name="IdProduction" Type="int" />
+    <Property Name="Saison" Type="nvarchar" MaxLength="50" />
+    <Property Name="Episode" Type="int" />
+    <Property Name="FileName" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <Association Name="FK_Acteur_Personne">
+    <End Role="Personne" Type="MediaCenterDBModel.Store.Personne" Multiplicity="1" />
+    <End Role="Acteur" Type="MediaCenterDBModel.Store.Acteur" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Personne">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Acteur">
+        <PropertyRef Name="IdPersonne" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Acteur_Video">
+    <End Role="Video" Type="MediaCenterDBModel.Store.Video" Multiplicity="1" />
+    <End Role="Acteur" Type="MediaCenterDBModel.Store.Acteur" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Video">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Acteur">
+        <PropertyRef Name="IdVideo" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Type_Type">
+    <End Role="Type" Type="MediaCenterDBModel.Store.Type" Multiplicity="0..1" />
+    <End Role="Type1" Type="MediaCenterDBModel.Store.Type" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Type">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Type1">
+        <PropertyRef Name="TypeParentId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Video_Production">
+    <End Role="Production" Type="MediaCenterDBModel.Store.Production" Multiplicity="0..1" />
+    <End Role="Video" Type="MediaCenterDBModel.Store.Video" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Production">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Video">
+        <PropertyRef Name="IdProduction" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Video_Realisateur">
+    <End Role="Personne" Type="MediaCenterDBModel.Store.Personne" Multiplicity="0..1" />
+    <End Role="Video" Type="MediaCenterDBModel.Store.Video" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Personne">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Video">
+        <PropertyRef Name="IdRealisateur" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Video_Type">
+    <End Role="Type" Type="MediaCenterDBModel.Store.Type" Multiplicity="0..1" />
+    <End Role="Video" Type="MediaCenterDBModel.Store.Video" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Type">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Video">
+        <PropertyRef Name="IdType" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>

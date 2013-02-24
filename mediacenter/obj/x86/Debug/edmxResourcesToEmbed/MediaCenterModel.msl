@@ -1,0 +1,52 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2008/09/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="MediaCenterDBModelStoreContainer" CdmEntityContainer="MediaCenterDBEntities">
+    <EntitySetMapping Name="Personnes">
+      <EntityTypeMapping TypeName="MediaCenterDBModel.Personne">
+        <MappingFragment StoreEntitySet="Personne">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Libelle" ColumnName="Libelle" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Productions">
+      <EntityTypeMapping TypeName="MediaCenterDBModel.Production">
+        <MappingFragment StoreEntitySet="Production">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Libelle" ColumnName="Libelle" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Videos">
+      <EntityTypeMapping TypeName="MediaCenterDBModel.Video">
+        <MappingFragment StoreEntitySet="Video">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Libelle" ColumnName="Libelle" />
+          <ScalarProperty Name="IdRealisateur" ColumnName="IdRealisateur" />
+          <ScalarProperty Name="IdType" ColumnName="IdType" />
+          <ScalarProperty Name="IdProduction" ColumnName="IdProduction" />
+          <ScalarProperty Name="Saison" ColumnName="Saison" />
+          <ScalarProperty Name="Episode" ColumnName="Episode" />
+          <ScalarProperty Name="FileName" ColumnName="FileName" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <AssociationSetMapping Name="Acteur" TypeName="MediaCenterDBModel.Acteur" StoreEntitySet="Acteur">
+      <EndProperty Name="Personne">
+        <ScalarProperty Name="Id" ColumnName="IdPersonne" />
+      </EndProperty>
+      <EndProperty Name="Video">
+        <ScalarProperty Name="Id" ColumnName="IdVideo" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <EntitySetMapping Name="Types">
+      <EntityTypeMapping TypeName="MediaCenterDBModel.Type">
+        <MappingFragment StoreEntitySet="Type">
+          <ScalarProperty Name="TypeParentId" ColumnName="TypeParentId" />
+          <ScalarProperty Name="Libelle" ColumnName="Libelle" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

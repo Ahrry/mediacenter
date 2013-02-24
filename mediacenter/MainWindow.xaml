@@ -1,8 +1,15 @@
 ﻿<Window x:Class="mediacenter.MainWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        Title="MainWindow" Height="350" Width="525">
-    <Grid>
-        <TextBlock  FontSize="18" Foreground="Red" FontWeight="Bold">Bonjour le monde</TextBlock>
+        xmlns:vm="clr-namespace:mediacenter.ViewModels"
+        Title="MainWindow" >
+    <Grid >
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+
+        <TabControl x:Name="TabControl" ItemsSource="{Binding TabItems}">
+        </TabControl>
     </Grid>
 </Window>
