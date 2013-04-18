@@ -8,6 +8,9 @@ using System.Linq;
 using System.Windows.Data;
 using System.Windows.Controls;
 using mediacenter.DataAccess;
+using mediacenter.UserControls;
+using mediacenter.Views;
+using System.Windows.Input;
 
 namespace mediacenter.ViewModels
 {
@@ -42,7 +45,7 @@ namespace mediacenter.ViewModels
             TabItems = new Collection<TabItem>();
             foreach (Type type in _typeRepository.GetBaseCategories())
             {
-                TabItems.Add(new TabItem() { Header = type.Libelle });
+                TabItems.Add(new MCTabItem(new Layout()) { Header = type.Libelle });
             }
         }
 
@@ -55,6 +58,10 @@ namespace mediacenter.ViewModels
             _typeRepository = new TypeRepository();
             LoadCatégories();
         } 
+
+        #endregion
+
+        #region Commands        
 
         #endregion
     }

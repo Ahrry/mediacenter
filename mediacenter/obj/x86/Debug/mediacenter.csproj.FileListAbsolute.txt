@@ -24,3 +24,12 @@ C:\Users\Thierry\Documents\GitHub\mediacenter\mediacenter\bin\Debug\Microsoft.Wi
 C:\Users\Thierry\Documents\GitHub\mediacenter\mediacenter\bin\Debug\RibbonControlsLibrary.pdb
 C:\Users\Thierry\Documents\GitHub\mediacenter\mediacenter\bin\Debug\RibbonControlsLibrary.xml
 C:\Users\Thierry\Documents\GitHub\mediacenter\mediacenter\obj\x86\Debug\mediacenter_MarkupCompile.lref
+C:\Users\Thierry\Documents\GitHub\mediacenter\mediacenter\obj\x86\Debug\UserControls\LecteurVideo.baml
+C:\Users\Thierry\Documents\GitHub\mediacenter\mediacenter\obj\x86\Debug\UserControls\ListVideo.baml
+C:\Users\Thierry\Documents\GitHub\mediacenter\mediacenter\obj\x86\Debug\UserControls\LecteurVideo.g.cs
+C:\Users\Thierry\Documents\GitHub\mediacenter\mediacenter\obj\x86\Debug\UserControls\ListVideo.g.cs
+C:\Users\Thierry\Documents\GitHub\mediacenter\mediacenter\obj\x86\Debug\Views\DetailVideo.g.cs
+C:\Users\Thierry\Documents\GitHub\mediacenter\mediacenter\obj\x86\Debug\Views\Layout.g.cs
+C:\Users\Thierry\Documents\GitHub\mediacenter\mediacenter\obj\x86\Debug\GeneratedInternalTypeHelper.g.cs
+C:\Users\Thierry\Documents\GitHub\mediacenter\mediacenter\obj\x86\Debug\Views\DetailVideo.baml
+C:\Users\Thierry\Documents\GitHub\mediacenter\mediacenter\obj\x86\Debug\Views\Layout.baml

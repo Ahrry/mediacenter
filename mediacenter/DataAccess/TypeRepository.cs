@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Data.Objects;
 
 namespace mediacenter.DataAccess
 {
@@ -15,7 +16,7 @@ namespace mediacenter.DataAccess
 
         #region Champs
 
-        readonly List<Type> _types;
+        readonly ObjectSet<Type> _types;
 
         #endregion
 
@@ -23,16 +24,16 @@ namespace mediacenter.DataAccess
 
         public TypeRepository()
         {
-            _types = entities.Types.ToList();
+            _types = entities.Types;
         }
 
         #endregion
 
-        #region MyRegion
+        #region DataAccess
 
-        public List<Type> GetBaseCategories()
+        public IEnumerable<Type> GetBaseCategories()
         {
-            return new List<Type>(_types.Where(t => t.TypeParentId == null));
+            return _types.Where(t => t.TypeParentId == null);
         }
 
         #endregion
