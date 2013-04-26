@@ -33,3 +33,7 @@ C:\Users\Thierry\Documents\GitHub\mediacenter\mediacenter\obj\x86\Debug\Views\La
 C:\Users\Thierry\Documents\GitHub\mediacenter\mediacenter\obj\x86\Debug\GeneratedInternalTypeHelper.g.cs
 C:\Users\Thierry\Documents\GitHub\mediacenter\mediacenter\obj\x86\Debug\Views\DetailVideo.baml
 C:\Users\Thierry\Documents\GitHub\mediacenter\mediacenter\obj\x86\Debug\Views\Layout.baml
+C:\Users\Thierry\Documents\GitHub\mediacenter\mediacenter\obj\x86\Debug\Views\DetailFilm.baml
+C:\Users\Thierry\Documents\GitHub\mediacenter\mediacenter\obj\x86\Debug\Views\DetailFilm.g.cs
+C:\Users\Thierry\Documents\GitHub\mediacenter\mediacenter\obj\x86\Debug\Views\DetailVide.baml
+C:\Users\Thierry\Documents\GitHub\mediacenter\mediacenter\obj\x86\Debug\Views\DetailVide.g.cs

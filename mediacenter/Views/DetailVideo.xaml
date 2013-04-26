@@ -4,10 +4,11 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:UserControl="clr-namespace:mediacenter.UserControls"
+             xmlns:Views="clr-namespace:mediacenter.Views"
              mc:Ignorable="d" 
              d:DesignHeight="400" d:DesignWidth="400">
     
-    <Grid DataContext="{Binding SelectedVideo}">
+    <Grid>
         
         <Grid.ColumnDefinitions>
             <ColumnDefinition />
@@ -15,36 +16,7 @@
         </Grid.ColumnDefinitions>
         
         <!-- Détails -->
-        <Grid>
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="Auto"/>
-                <ColumnDefinition />
-            </Grid.ColumnDefinitions>
-            <Grid.RowDefinitions>
-                <RowDefinition Height="Auto"/>
-                <RowDefinition Height="Auto"/>
-                <RowDefinition Height="Auto"/>
-                <RowDefinition Height="Auto"/>
-                <RowDefinition Height="Auto"/>
-                <RowDefinition Height="Auto"/>
-                <RowDefinition Height="Auto"/>
-            </Grid.RowDefinitions>
-
-            <!-- Libellés -->
-            <TextBlock Grid.Row="0" Grid.Column="0" Text="Nom"/>
-            <TextBlock Grid.Row="1" Grid.Column="0" Text="Nom"/>
-            <TextBlock Grid.Row="2" Grid.Column="0" Text="Nom"/>
-            <TextBlock Grid.Row="3" Grid.Column="0" Text="Nom"/>
-            <TextBlock Grid.Row="4" Grid.Column="0" Text="Nom"/>
-
-            <!-- Champs -->
-            <TextBlock Grid.Row="0" Grid.Column="1" Text="{Binding Libelle}"/>
-            <TextBlock Grid.Row="1" Grid.Column="1" Text="{Binding Libelle}"/>
-            <TextBlock Grid.Row="2" Grid.Column="1" Text="{Binding Libelle}"/>
-            <TextBlock Grid.Row="3" Grid.Column="1" Text="{Binding Libelle}"/>
-            <TextBlock Grid.Row="4" Grid.Column="1" Text="{Binding Libelle}"/>
-        </Grid>
-
+        <ContentPresenter ContentTemplate="{Binding Detail}" DataContext="{Binding}" />
         
         <!-- Lecteur vidéo-->
         <UserControl:LecteurVideo Grid.Column="1" />

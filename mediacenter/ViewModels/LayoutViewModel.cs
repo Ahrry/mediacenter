@@ -7,6 +7,7 @@ using System.Collections.ObjectModel;
 using System.Windows.Controls;
 using System.Windows.Input;
 using Microsoft.Win32;
+using mediacenter.Views;
 
 namespace mediacenter.ViewModels
 {
@@ -19,6 +20,18 @@ namespace mediacenter.ViewModels
         #endregion
 
         #region Properties
+
+        private Type _type;
+
+        public Type Type
+        {
+            get { return _type; }
+            set 
+            {
+                _type = value;
+                base.OnPropertyChanged("Type");
+            }
+        }
 
         private ObservableCollection<Video> _videos;
 
@@ -44,19 +57,57 @@ namespace mediacenter.ViewModels
             }
         }
 
+        private UserControl _detail;
+
+        public UserControl Detail
+        {
+            get { return _detail; }
+            set 
+            { 
+                _detail = value;
+                base.OnPropertyChanged("Detail");
+            }
+        } 
+
         #endregion
 
         #region DataContext
 
         void LoadVideos()
         {
-            Videos = new ObservableCollection<Video>(_videoRepository.Getvideos());
+            if(Type != null)
+                Videos = new ObservableCollection<Video>(_videoRepository.GetvideosParCategorie(Type.Id));
         }
 
-        void LoadVideosByCategorie(int idCategorie)
+        void LayoutViewModel_PropertyChanged(object sender, System.ComponentModel.PropertyChangedEventArgs e)
         {
-            Videos = new ObservableCollection<Video>(_videoRepository.Getvideos());
-        }
+            if (e.PropertyName == "SelectedVideo")
+            {
+                switch (SelectedVideo.Type.Libelle)
+                {
+                    case "Films":
+                        Detail = new DetailVide();
+                        break;
+                    default:
+                        //Detail = null;
+                        break;
+                }
+            }
+
+            if (e.PropertyName == "Type")
+            {
+                switch (Type.Libelle)
+                {
+                    case "Films":
+                        Detail = new DetailVide();
+                        break;
+                    default:
+                        //Detail = null;
+                        break;
+                }
+                LoadVideos();
+            }
+        } 
 
         #endregion
 
@@ -72,6 +123,7 @@ namespace mediacenter.ViewModels
                 Video video = new Video();
                 video.Libelle = opd.SafeFileName;
                 video.FileName = opd.FileName;
+                video.Type = Type;
 
                 Videos.Add(video);
 
@@ -93,11 +145,12 @@ namespace mediacenter.ViewModels
         public LayoutViewModel()
         {
             _videoRepository = new VideoRepository();
-            LoadVideos();
 
             AddVideoCommand = new RelayCommand(param => this.AddVideo());
             SaveCommand = new RelayCommand(param => this.AddVideo());
-        } 
+
+            PropertyChanged += new System.ComponentModel.PropertyChangedEventHandler(LayoutViewModel_PropertyChanged);
+        }
 
         #endregion
     }

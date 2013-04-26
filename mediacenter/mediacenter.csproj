@@ -96,6 +96,12 @@
     <Compile Include="ViewModels\MainViewModel.cs" />
     <Compile Include="ViewModels\ViewModelBase.cs" />
     <Compile Include="ViewModels\WorkspaceViewModel.cs" />
+    <Compile Include="Views\DetailFilm.xaml.cs">
+      <DependentUpon>DetailFilm.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\DetailVide.xaml.cs">
+      <DependentUpon>DetailVide.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\DetailVideo.xaml.cs">
       <DependentUpon>DetailVideo.xaml</DependentUpon>
     </Compile>
@@ -125,6 +131,14 @@
     <Page Include="UserControls\ListVideo.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\DetailFilm.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\DetailVide.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\DetailVideo.xaml">
       <Generator>MSBuild:Compile</Generator>

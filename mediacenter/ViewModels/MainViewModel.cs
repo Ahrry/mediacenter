@@ -45,7 +45,7 @@ namespace mediacenter.ViewModels
             TabItems = new Collection<TabItem>();
             foreach (Type type in _typeRepository.GetBaseCategories())
             {
-                TabItems.Add(new MCTabItem(new Layout()) { Header = type.Libelle });
+                TabItems.Add(new MCTabItem(new Layout(type) ) { Header = type.Libelle });
             }
         }
 

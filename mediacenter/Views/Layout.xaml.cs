@@ -32,11 +32,12 @@ namespace mediacenter.Views
             }
         }
 
-        public Layout()
+        public Layout(Type type)
         {
             InitializeComponent();
 
             ViewModel = new LayoutViewModel();
+            ViewModel.Type = type;
         }
     }
 }
